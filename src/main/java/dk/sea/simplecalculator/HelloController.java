@@ -43,18 +43,25 @@ public class HelloController {
 
        
         else if (expr.contains("-")) {
-            
-            int minusPos = expr.indexOf("-", 1);
+
+            String formatted = expr.replace("-", "+-");
 
 
-            if (minusPos != -1) {
-                String firstNum = expr.substring(0, minusPos);  // "-4"
-                String secondNum = expr.substring(minusPos + 1); // "6"
-
-
-                answer = Double.parseDouble(firstNum) - Double.parseDouble(secondNum);
-                calculated = true;
+            if (formatted.startsWith("+")) {
+                formatted = formatted.substring(1);
             }
+
+
+            String[] parts = formatted.split("\\+");
+
+
+            answer = 0;
+            for (String part : parts) {
+                if (!part.isEmpty()) {
+                    answer += Double.parseDouble(part); // -2 + (-4) + (-6) + (-10)
+                }
+            }
+            calculated = true;
         }
 
         else if (expr.contains("/")) {
