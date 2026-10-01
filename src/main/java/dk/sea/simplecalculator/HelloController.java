@@ -13,14 +13,14 @@ public class HelloController {
 
 
     @FXML
-    public void onBtnNumberOrOperatorClicked(ActionEvent event) {
+    private void onBtnNumberOrOperatorClicked(ActionEvent event) {
         Button btn = (Button) event.getSource();
         txtResult.setText(txtResult.getText() + btn.getText());
     }
 
 
     @FXML
-    public void onBtnResultClicked(ActionEvent actionEvent) {
+    private void onBtnResultClicked(ActionEvent actionEvent) {
         String expr = txtResult.getText().replace(",", "."); // Change ',' to '.' for math
         double answer = 0;
         boolean calculated = false;
@@ -82,7 +82,7 @@ public class HelloController {
 
 
     @FXML
-    public void onBtnClearClicked(ActionEvent actionEvent) {
+    private void onBtnClearClicked(ActionEvent actionEvent) {
         txtResult.clear();
     }
 
