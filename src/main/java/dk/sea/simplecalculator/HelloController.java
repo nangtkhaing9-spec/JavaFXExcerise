@@ -47,10 +47,19 @@ public class HelloController {
             calculated = true;
         }
 
-        else if (expr.contains("x")) {
-            String[] parts = expr.split("x");
-            answer = Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
-            calculated = true;
+        else if (expr.contains("-")) {
+            
+            int minusPos = expr.indexOf("-", 1);
+
+
+            if (minusPos != -1) {
+                String firstNum = expr.substring(0, minusPos);  // "-4"
+                String secondNum = expr.substring(minusPos + 1); // "6"
+
+
+                answer = Double.parseDouble(firstNum) - Double.parseDouble(secondNum);
+                calculated = true;
+            }
         }
 
         else if (expr.contains("/")) {
