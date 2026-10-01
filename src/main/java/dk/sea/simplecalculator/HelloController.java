@@ -41,12 +41,7 @@ public class HelloController {
             calculated = true;
         }
 
-        else if (expr.contains("-") && !expr.startsWith("-")) {
-            String[] parts = expr.split("-");
-            answer = Double.parseDouble(parts[0]) - Double.parseDouble(parts[1]);
-            calculated = true;
-        }
-
+       
         else if (expr.contains("-")) {
             
             int minusPos = expr.indexOf("-", 1);
